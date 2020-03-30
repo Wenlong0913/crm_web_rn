@@ -1,9 +1,15 @@
-/**
- * @format
- */
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+import React from 'react';
+import { AppRegistry, Platform } from 'react-native';
+// import App from './App';
+import AppIndex from './app/CrmApp.js'
+import { name as appName } from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+function AppWarp(props) {
+  console.log(' 模拟器平台信息--->>>', Platform);
+  return (
+    <AppIndex pf={Platform} />
+  )
+}
+
+AppRegistry.registerComponent(appName, () => AppWarp);
