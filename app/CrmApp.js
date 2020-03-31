@@ -2,13 +2,11 @@
 import React from 'react';
 import {
   StyleSheet,
-  ScrollView,
   View,
   Image,
-  TouchableOpacity,
-  NativeModules,
   TouchableHighlight,
-  Platform,
+  ScrollView,
+  SafeAreaView,
 } from 'react-native';
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
@@ -17,40 +15,21 @@ import { DrawerItems, DrawerActions, createDrawerNavigator } from 'react-navigat
 import LoginPage from './views/LoginPage';
 import MainPage from './views/MainPage';
 
-const CustomDrawerContentComponent = props => {
-  const { navigation } = props;
-  return (
-    <ScrollView>
-      {/* <SafeAreaView
-        style={styles.container}
-        forceInset={{ top: 'always', horizontal: 'never' }}
-      > */}
-      <View>
-        <TouchableOpacity
-          onPress={() => navigation.dispatch(DrawerActions.closeDrawer())}>
-          <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
-        </TouchableOpacity>
-      </View>
-      <DrawerItems {...props} />
-      {/* </SafeAreaView> */}
-    </ScrollView>
-  );
-};
-// 侧边栏
+// 侧边抽屉配置
 const RouteConfigs = {
-  page1: {
+  drawer1: {
     screen: LoginPage,
     navigationOptions: {
-      drawerLabel: 'page1',
+      drawerLabel: '抽屉1',
       drawerIcon: (
         <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
       ),
     },
   },
-  page2: {
+  drawer2: {
     screen: MainPage,
     navigationOptions: {
-      drawerLabel: 'page2',
+      drawerLabel: '抽屉2',
       drawerIcon: (
         <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
       ),
@@ -60,9 +39,14 @@ const RouteConfigs = {
 };
 const DrawerNavigatorConfig = {
   animationEnabled: true,
-  initialRouteName: 'page1',
-  contentComponent: CustomDrawerContentComponent,
-  // drawerWidth:Dimensions.get('window').width *0.9, // 抽屉宽
+  initialRouteName: 'drawer1',
+  contentComponent: (props) => (
+    <ScrollView>
+      <SafeAreaView forceInset>
+        <DrawerItems {...props} />
+      </SafeAreaView>
+    </ScrollView>
+  ),
   drawerPosition: 'left', // 抽屉在左边还是右边
   contentOptions: {
     labelStyle: {
@@ -79,29 +63,33 @@ const DrawerNavigatorConfig = {
     },
   },
 };
-
+// 抽屉创建
 const DrawerStack = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfig);
-DrawerStack.navigationOptions = ({navigation, screenProps}) => {
+// 进入之后 title 显示的是 抽屉的配置 head title 配置
+// toggleDrawer 打开关闭抽屉
+// closeDrawer 关闭抽屉
+// openDrawer 打开抽屉
+DrawerStack.navigationOptions = ({ navigation }) => {
   return {
-    title: 'CRM',
-    headerTruncatedBackTitle: 'CRM',
+    title: 'CRM-WEB-APP',
+    // headerTruncatedBackTitle: 'CRM',
     tabBarOptions: {
-      activeBackgroundColor: '#fff',
+      activeBackgroundColor: 'red',
     },
-    headerLeft: (
+    headerLeft: _ => (
       <View>
         <TouchableHighlight
           onPress={() => {
-            navigation.goBack();
+            navigation.dispatch(DrawerActions.toggleDrawer());
           }}>
-           <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
+          <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
         </TouchableHighlight>
       </View>
     ),
   };
 };
 
-// 配置页面
+// navigation 配置跳转
 const pages = {
   login: {
     screen: LoginPage,
@@ -109,7 +97,7 @@ const pages = {
   main: {
     screen: MainPage,
   },
-  left: {
+  drawer1: {
     screen: DrawerStack,
   },
 
@@ -120,7 +108,7 @@ const AppIndex = createStackNavigator(
     ...pages
   },
   {
-    initialRouteName: 'login',
+    initialRouteName: 'drawer1',
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: '#fff',
@@ -136,8 +124,7 @@ const AppIndex = createStackNavigator(
     },
   }
 );
-
-
-
 const AppContainer = createAppContainer(AppIndex);
+
+
 export default AppContainer;
