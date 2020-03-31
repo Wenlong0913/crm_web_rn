@@ -19,21 +19,21 @@ function LoginPage(props) {
     </SafeAreaView>
   )
 }
-LoginPage.navigationOptions = ({ navigation }) => {
-  return {
-    title: '首页',
-    headerLeft: ()=>{
-      return (
-        <View>
-        <TouchableHighlight
-          onPress={() => {
-            navigation.dispatch(DrawerActions.openDrawer());
-          }}>
-          <Image source={require('../../imgs/crm_module_btn_sunpeople.png')} />
-        </TouchableHighlight>
-      </View>
-      )
-    }
-  }
-};
+// LoginPage.navigationOptions = ({ navigation }) => {
+//   return {
+//     title: '首页',
+//     headerLeft: _ =>{
+//       return (
+//         <View>
+//         <TouchableHighlight
+//           onPress={() => {
+//             navigation.dispatch(DrawerActions.openDrawer());
+//           }}>
+//           <Image source={require('../../imgs/crm_module_btn_sunpeople.png')} />
+//         </TouchableHighlight>
+//       </View>
+//       )
+//     }
+//   }
+// };
 export default LoginPage;
