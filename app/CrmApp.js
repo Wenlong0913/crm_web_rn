@@ -49,15 +49,17 @@ const DrawerNavigatorConfig = {
   ),
   drawerPosition: 'left', // 抽屉在左边还是右边
   contentOptions: {
-    labelStyle: {
+    activeTintColor: "yellow",//选中item状态的文字颜色；
+    activeBackgroundColor: "red",//选中item的背景色；
+    // inactiveTintColor:"green",//未选中item状态的文字颜色；
+    // inactiveBackgroundColor:"cyan",//未选中item的背景色；
+    labelStyle: {//定义item文字的样式；
       fontSize: 16,
-      color: 'rgb(104, 38, 38)',
     },
-    activeBackgroundColor: '#fff',
-    iconContainerStyle: {
+    iconContainerStyle: {//定义item图标容器的样式；
       opacity: 1,
     },
-    itemStyle: {
+    itemStyle: {//定义item的样式；
       borderBottomWidth: 0.5,
       borderBottomColor: 'rgb(237, 226, 226)',
     },
@@ -66,9 +68,9 @@ const DrawerNavigatorConfig = {
 // 抽屉创建
 const DrawerStack = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfig);
 // 进入之后 title 显示的是 抽屉的配置 head title 配置
-// toggleDrawer 打开关闭抽屉
-// closeDrawer 关闭抽屉
-// openDrawer 打开抽屉
+// toggleDrawer 切换
+// closeDrawer 关闭
+// openDrawer 打开
 DrawerStack.navigationOptions = ({ navigation }) => {
   return {
     title: 'CRM-WEB-APP',
