@@ -29,7 +29,7 @@ function AppWarp(props) {
         <Text style={styles.warpText}>当前模拟器  {Platform.OS} </Text>
         <Button
           onPress={onPressLand}
-          title="登陆"
+          title="进入"
           color="#841584"
         />
       </View>

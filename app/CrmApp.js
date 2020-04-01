@@ -116,7 +116,7 @@ DrawerStack.navigationOptions = ({navigation}) => {
         <TouchableHighlight
           style={{ marginRight: 10 }}
           onPress={() => {
-            navigation.navigate('gambling')
+            navigation.navigate('iconIntroduce')
           }}>
           <View>
             <Image source={require('./imgs/crm_rncrm_module__intro.png')} />
