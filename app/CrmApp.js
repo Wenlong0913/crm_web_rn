@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   StyleSheet,
@@ -8,39 +7,78 @@ import {
   ScrollView,
   SafeAreaView,
 } from 'react-native';
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
-import { DrawerItems, DrawerActions, createDrawerNavigator } from 'react-navigation-drawer';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import {
+  DrawerItems,
+  DrawerActions,
+  createDrawerNavigator,
+} from 'react-navigation-drawer';
 
 import LoginPage from './views/LoginPage';
 import MainPage from './views/MainPage';
+import BasicData from './views/BasicData'; //基本资料
+import CustomersBackground from './views/CustomersBackground'; //客户背景
+import Gambling from './views/Gambling'//过往博彩
 
 // 侧边抽屉配置
 const RouteConfigs = {
+  // drawer1: {
+  //   screen: LoginPage,
+  //   navigationOptions: {
+  //     drawerLabel: '抽屉1',
+  //     drawerIcon: (
+  //       <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
+  //     ),
+  //   },
+  // },
+  // drawer2: {
+  //   screen: MainPage,
+  //   navigationOptions: {
+  //     drawerLabel: '抽屉2',
+  //     drawerIcon: (
+  //       <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
+  //     ),
+  //   },
+  // },
   drawer1: {
-    screen: LoginPage,
+    screen: BasicData,
     navigationOptions: {
-      drawerLabel: '抽屉1',
+      drawerLabel: '基本资料',
       drawerIcon: (
-        <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__profile.png')}
+        />
       ),
     },
   },
   drawer2: {
-    screen: MainPage,
+    screen: CustomersBackground,
     navigationOptions: {
-      drawerLabel: '抽屉2',
+      drawerLabel: '客户背景',
       drawerIcon: (
-        <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__combined.png')}
+        />
       ),
     },
   },
-
+  drawer3: {
+    screen: Gambling,
+    navigationOptions: {
+      drawerLabel: '过往博彩经验',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__count.png')}
+        />
+      ),
+    },
+  },
 };
 const DrawerNavigatorConfig = {
   animationEnabled: true,
   initialRouteName: 'drawer1',
-  contentComponent: (props) => (
+  contentComponent: props => (
     <ScrollView>
       <SafeAreaView forceInset>
         <DrawerItems {...props} />
@@ -49,17 +87,20 @@ const DrawerNavigatorConfig = {
   ),
   drawerPosition: 'left', // 抽屉在左边还是右边
   contentOptions: {
-    activeTintColor: "yellow",//选中item状态的文字颜色；
-    activeBackgroundColor: "red",//选中item的背景色；
+    activeTintColor: 'yellow', //选中item状态的文字颜色；
+    activeBackgroundColor: 'red', //选中item的背景色；
     // inactiveTintColor:"green",//未选中item状态的文字颜色；
     // inactiveBackgroundColor:"cyan",//未选中item的背景色；
-    labelStyle: {//定义item文字的样式；
+    labelStyle: {
+      //定义item文字的样式；
       fontSize: 16,
     },
-    iconContainerStyle: {//定义item图标容器的样式；
+    iconContainerStyle: {
+      //定义item图标容器的样式；
       opacity: 1,
     },
-    itemStyle: {//定义item的样式；
+    itemStyle: {
+      //定义item的样式；
       borderBottomWidth: 0.5,
       borderBottomColor: 'rgb(237, 226, 226)',
     },
@@ -71,7 +112,7 @@ const DrawerStack = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfig);
 // toggleDrawer 切换
 // closeDrawer 关闭
 // openDrawer 打开
-DrawerStack.navigationOptions = ({ navigation }) => {
+DrawerStack.navigationOptions = ({navigation}) => {
   return {
     title: 'CRM-WEB-APP',
     // headerTruncatedBackTitle: 'CRM',
@@ -81,7 +122,7 @@ DrawerStack.navigationOptions = ({ navigation }) => {
     headerLeft: _ => (
       <View>
         <TouchableHighlight
-        style={{marginLeft: 10}}
+          style={{marginLeft: 10}}
           onPress={() => {
             navigation.dispatch(DrawerActions.toggleDrawer());
           }}>
@@ -103,12 +144,20 @@ const pages = {
   drawer1: {
     screen: DrawerStack,
   },
-
-}
+  basicData: {
+    screen: BasicData,
+  },
+  customersBackground: {
+    screen: CustomersBackground,
+  },
+  gambling:{
+    screen:Gambling
+  }
+};
 
 const AppIndex = createStackNavigator(
   {
-    ...pages
+    ...pages,
   },
   {
     initialRouteName: 'drawer1',
@@ -125,9 +174,8 @@ const AppIndex = createStackNavigator(
         paddingRight: 30,
       },
     },
-  }
+  },
 );
 const AppContainer = createAppContainer(AppIndex);
-
 
 export default AppContainer;
