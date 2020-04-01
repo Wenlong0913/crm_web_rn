@@ -20,6 +20,23 @@ import MainPage from './views/MainPage';
 import BasicData from './views/BasicData'; //基本资料
 import CustomersBackground from './views/CustomersBackground'; //客户背景
 import Gambling from './views/Gambling'//过往博彩
+import Credit from './views/Credit'//信贷
+import Schedule from './views/Schedule'//行程
+import ShoppingRecord from './views/ShoppingRecord'//购物记录
+import CustomerContact from './views/CustomerContact'//客户接触
+import Appointment from './views/Appointment'//客户约见
+import Dynamic from './views/Dynamic'//入场动态
+import Courtesy from './views/Courtesy'//礼遇
+import SessionAnalyse from './views/SessionAnalyse'//场次分析
+import AccountAnalyse from './views/AccountAnalyse'//户口分析
+import ConsumeAnalyse from './views/ConsumeAnalyse'//消费分析
+import Achievement from './views/Achievement'//业绩
+import Complaints from './views/Complaints'//投诉
+import Demands from './views/Demands'//需求
+import Opinion from './views/Opinion'//意见
+
+
+
 
 // 侧边抽屉配置
 const RouteConfigs = {
@@ -70,6 +87,160 @@ const RouteConfigs = {
       drawerIcon: (
         <Image
           source={require('./imgs/sidebarIcon/crm_rncrm_module__count.png')}
+        />
+      ),
+    },
+  },
+  drawer4: {
+    screen: Credit,
+    navigationOptions: {
+      drawerLabel: '信贷',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__credit.png')}
+        />
+      ),
+    },
+  },
+  drawer5: {
+    screen: Schedule,
+    navigationOptions: {
+      drawerLabel: '行程',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__schedule.png')}
+        />
+      ),
+    },
+  },
+  drawer6: {
+    screen: ShoppingRecord,
+    navigationOptions: {
+      drawerLabel: '购物记录',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__shoppingrecord.png')}
+        />
+      ),
+    },
+  },
+  drawer7: {
+    screen:CustomerContact ,
+    navigationOptions: {
+      drawerLabel: '客户接触',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__customer_contact.png')}
+        />
+      ),
+    },
+  },
+  drawer8: {
+    screen: Appointment,
+    navigationOptions: {
+      drawerLabel: '客户约见',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__Appointment.png')}
+        />
+      ),
+    },
+  },
+  drawer9: {
+    screen: Dynamic,
+    navigationOptions: {
+      drawerLabel: '入场动态',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__entre.png')}
+        />
+      ),
+    },
+  },
+  drawer10: {
+    screen: Courtesy,
+    navigationOptions: {
+      drawerLabel: '礼遇',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_module_present_20X20select.png')}
+        />
+      ),
+    },
+  },
+  drawer11: {
+    screen: SessionAnalyse,
+    navigationOptions: {
+      drawerLabel: '场次分析',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__exit.png')}
+        />
+      ),
+    },
+  },
+  drawer12: {
+    screen: AccountAnalyse,
+    navigationOptions: {
+      drawerLabel: '户口分析',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__data.png')}
+        />
+      ),
+    },
+  },
+  drawer13: {
+    screen: ConsumeAnalyse,
+    navigationOptions: {
+      drawerLabel: '消费分析',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__consume.png')}
+        />
+      ),
+    },
+  },
+  drawer14: {
+    screen: Achievement,
+    navigationOptions: {
+      drawerLabel: '业绩',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__achievement.png')}
+        />
+      ),
+    },
+  },
+  drawer15: {
+    screen: Complaints,
+    navigationOptions: {
+      drawerLabel: '投诉',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__complaints.png')}
+        />
+      ),
+    },
+  },
+  drawer16: {
+    screen: Demands,
+    navigationOptions: {
+      drawerLabel: '需求',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__demands.png')}
+        />
+      ),
+    },
+  },
+  drawer17: {
+    screen: Opinion,
+    navigationOptions: {
+      drawerLabel: '需求',
+      drawerIcon: (
+        <Image
+          source={require('./imgs/sidebarIcon/crm_rncrm_module__opinion.png')}
         />
       ),
     },
@@ -152,6 +323,48 @@ const pages = {
   },
   gambling:{
     screen:Gambling
+  },
+  Credit:{
+    screen:Credit
+  },
+  Schedule:{
+    screen:Schedule
+  },
+  ShoppingRecord:{
+    screen:ShoppingRecord
+  },
+  CustomerContact:{
+    screen:CustomerContact
+  },
+  Appointment:{
+    screen:Appointment
+  },
+  Dynamic:{
+    screen:Dynamic
+  },
+  Courtesy:{
+    screen:Courtesy
+  },
+  SessionAnalyse:{
+    screen:SessionAnalyse
+  },
+  AccountAnalyse:{
+    screen:AccountAnalyse
+  },
+  ConsumeAnalyse:{
+    screen:ConsumeAnalyse
+  },
+  Achievement:{
+    screen:Achievement
+  },
+  Complaints:{
+    screen:Complaints
+  },
+  Demands:{
+    screen:Demands
+  },
+  Opinion:{
+    screen:Opinion
   }
 };
 
