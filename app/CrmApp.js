@@ -81,10 +81,11 @@ DrawerStack.navigationOptions = ({ navigation }) => {
     headerLeft: _ => (
       <View>
         <TouchableHighlight
+        style={{marginLeft: 10}}
           onPress={() => {
             navigation.dispatch(DrawerActions.toggleDrawer());
           }}>
-          <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
+          <Image source={require('./imgs/crm_rncrm_module__filter.png')} />
         </TouchableHighlight>
       </View>
     ),
