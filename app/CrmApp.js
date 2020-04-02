@@ -218,7 +218,7 @@ const RouteConfigs = {
   drawer17: {
     screen: Opinion,
     navigationOptions: {
-      drawerLabel: '需求',
+      drawerLabel: '意见',
       drawerIcon: (
         <Image
           source={require('./imgs/sidebarIcon/crm_rncrm_module__opinion.png')}
@@ -232,15 +232,15 @@ const DrawerNavigatorConfig = {
   initialRouteName: 'drawer1',
   contentComponent: props => (
     <ScrollView>
-      <SafeAreaView forceInset>
+      <SafeAreaView>
         <DrawerItems {...props} />
       </SafeAreaView>
     </ScrollView>
   ),
   drawerPosition: 'left', // 抽屉在左边还是右边
   contentOptions: {
-    activeTintColor: 'yellow', //选中item状态的文字颜色；
-    activeBackgroundColor: 'red', //选中item的背景色；
+    // activeTintColor: 'cyan', //选中item状态的文字颜色；
+    // activeBackgroundColor: 'black', //选中item的背景色；
     // inactiveTintColor:"green",//未选中item状态的文字颜色；
     // inactiveBackgroundColor:"cyan",//未选中item的背景色；
     labelStyle: {
