@@ -42,7 +42,7 @@ const RouteConfigs = {
   drawer1: {
     screen: BasicData,
     navigationOptions: {
-      drawerLabel: '基本资料',
+      drawerLabel: '个人信息',
       drawerIcon: (
         <Image
           source={require('./imgs/sidebarIcon/crm_rncrm_module__profile.png')}
