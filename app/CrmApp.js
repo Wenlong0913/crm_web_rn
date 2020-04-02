@@ -6,6 +6,7 @@ import {
   TouchableHighlight,
   ScrollView,
   SafeAreaView,
+  Text,
 } from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
@@ -14,9 +15,7 @@ import {
   DrawerActions,
   createDrawerNavigator,
 } from 'react-navigation-drawer';
-
-import LoginPage from './views/LoginPage';
-import MainPage from './views/MainPage';
+import IconIntroduce from './views/IconIntroduce';//图示介绍
 import BasicData from './views/BasicData'; //基本资料
 import CustomersBackground from './views/CustomersBackground'; //客户背景
 import Gambling from './views/Gambling'//过往博彩
@@ -40,24 +39,6 @@ import Opinion from './views/Opinion'//意见
 
 // 侧边抽屉配置
 const RouteConfigs = {
-  // drawer1: {
-  //   screen: LoginPage,
-  //   navigationOptions: {
-  //     drawerLabel: '抽屉1',
-  //     drawerIcon: (
-  //       <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
-  //     ),
-  //   },
-  // },
-  // drawer2: {
-  //   screen: MainPage,
-  //   navigationOptions: {
-  //     drawerLabel: '抽屉2',
-  //     drawerIcon: (
-  //       <Image source={require('./imgs/crm_module_btn_sunpeople.png')} />
-  //     ),
-  //   },
-  // },
   drawer1: {
     screen: BasicData,
     navigationOptions: {
@@ -301,16 +282,27 @@ DrawerStack.navigationOptions = ({navigation}) => {
         </TouchableHighlight>
       </View>
     ),
+    headerRight: _ => (
+      <View>
+        <TouchableHighlight
+          style={{ marginRight: 10 }}
+          onPress={() => {
+            navigation.navigate('iconIntroduce')
+          }}>
+          <View>
+            <Image source={require('./imgs/crm_rncrm_module__intro.png')} />
+          </View>
+        </TouchableHighlight>
+      </View>
+    ),
   };
 };
 
 // navigation 配置跳转
 const pages = {
-  login: {
-    screen: LoginPage,
-  },
-  main: {
-    screen: MainPage,
+  // 图示介绍
+  iconIntroduce:{
+    screen: IconIntroduce,
   },
   drawer1: {
     screen: DrawerStack,
