@@ -4,8 +4,8 @@ import { Text, View } from 'react-native'
 export class Schedule extends Component {
     render() {
         return (
-            <View>
-                <Text> Schedule </Text>
+            <View style={{}}>
+               <Text> 今日行程 </Text>
             </View>
         )
     }
